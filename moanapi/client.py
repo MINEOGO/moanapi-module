@@ -3,7 +3,7 @@ import pkgutil
 import importlib
 from typing import Optional, Dict, Any
 from . import apis
-from . import __version__
+# REMOVED: from . import __version__
 
 class APIError(Exception):
     def __init__(self, message: str, status_code: Optional[int] = None):
@@ -11,6 +11,8 @@ class APIError(Exception):
         super().__init__(f"[MoanAPI Error] Status {status_code}: {message}" if status_code else f"[MoanAPI Error] {message}")
 
 def _check_for_updates():
+    # ADDED IMPORT HERE
+    from . import __version__
     try:
         response = requests.get("https://pypi.org/pypi/moanapi/json", timeout=3)
         if response.status_code == 200:
