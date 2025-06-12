@@ -11,7 +11,7 @@ class ApiClient(BaseClient):
     def get_user_presence(self, user_id: int) -> Dict[str, Any]:
         return self._make_request('GET', f'/roblox/presence/{user_id}')
         
-    def get_friends_list(self, user_id: int) -> Dict[str, Any]:
+    def get_friends(self, user_id: int) -> Dict[str, Any]:
         return self._make_request('GET', f'/roblox/friends/{user_id}')
 
     def get_friend_follower_counts(self, user_id: int) -> Dict[str, Any]:
